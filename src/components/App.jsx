@@ -25,10 +25,10 @@ export class App extends Component {
     }
   }
 
-  componentDidUpdate({ contacts }) {
+  componentDidUpdate(prevProps, prevState) {
     const nextConstats = this.state.contacts;
-    if (nextConstats !== contacts) {
-      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    if (nextConstats !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(nextConstats));
     }
   }
 
